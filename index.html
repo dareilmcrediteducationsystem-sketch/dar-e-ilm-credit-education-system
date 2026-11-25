@@ -80,6 +80,27 @@ header.site .btn-navy:hover{transform:translateY(-1px);box-shadow:0 16px 28px -1
 .mobilemenu a:hover{background:rgba(201,162,75,.14);color:#fff}
 header.site .mobilemenu a.active{color:var(--gold-soft);background:rgba(201,162,75,.13);box-shadow:inset 3px 0 0 var(--gold)}
 .mobilemenu.open{display:block}
+.mobilemenu a.sub{padding-left:36px;font-size:.95rem;color:#cfe0f7;position:relative}
+.mobilemenu a.sub::before{content:"";position:absolute;left:16px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--gold)}
+/* Features dropdown in the desktop pill nav */
+header.site nav.main .navdrop{position:relative;display:inline-flex}
+header.site nav.main .navdrop > a::after{content:"▾";margin-left:5px;font-size:.62rem;opacity:.8}
+header.site nav.main .dropmenu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);min-width:208px;background:linear-gradient(160deg,var(--navy-900),var(--navy-950));border:1px solid rgba(201,162,75,.55);border-radius:14px;padding:6px;box-shadow:0 24px 40px -16px rgba(5,23,51,.65);opacity:0;visibility:hidden;transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:70}
+header.site nav.main .dropmenu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+header.site nav.main .navdrop:hover .dropmenu,header.site nav.main .navdrop:focus-within .dropmenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(10px)}
+header.site nav.main .dropmenu a{display:flex;padding:10px 14px;border-radius:9px;font-size:.88rem;min-height:44px}
+header.site nav.main .dropmenu a:hover{transform:none}
+header.site nav.main .dropmenu a.active{background:linear-gradient(160deg,#eed9a0,var(--gold) 58%,var(--gold-deep));color:var(--navy-950)}
+/* Portal sections on the Features page */
+#teacher-portal,#parent-portal{scroll-margin-top:118px}
+.plist{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px}
+.plist li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:.97rem;line-height:1.5}
+.plist .tick{width:22px;height:22px;border-radius:50%;background:#fdf6df;border:1px solid var(--gold-soft);color:var(--gold-deep);display:grid;place-items:center;flex:0 0 auto;margin-top:1px}
+.loginbox{background:linear-gradient(140deg,var(--navy-700),var(--navy-950));border-radius:16px;padding:18px 20px;margin-top:22px;color:#d7e4f8}
+.loginbox b{color:#fff;display:block;font-size:1rem}
+.loginbox p{margin:5px 0 0;color:#c9d8f2;font-size:.94rem}
+.loginbox a{color:var(--gold-soft);font-weight:800;text-decoration:none;white-space:nowrap}
+.loginbox a:hover{color:#fff}
 @media(max-width:1250px){
   .navrow{gap:10px}
   header.site nav.main a{padding:7px 9px;font-size:.81rem;min-height:38px}
@@ -394,7 +415,7 @@ footer svg.inline{color:var(--gold-soft)}
         <a href="#home" data-en="Home" data-ur="ہوم">Home</a>
         <a href="#about" data-en="About Us" data-ur="ہمارے بارے میں">About Us</a>
         <a href="#academics" data-en="Academics" data-ur="نصاب">Academics</a>
-        <a href="#features" data-en="Features" data-ur="خصوصیات">Features</a>
+        <span class="navdrop"><a href="#features" data-en="Features" data-ur="خصوصیات">Features</a><span class="dropmenu"><a href="#teacher-portal" data-en="Teacher Portal" data-ur="ٹیچر پورٹل">Teacher Portal</a><a href="#parent-portal" data-en="Parent Portal" data-ur="والدین پورٹل">Parent Portal</a></span></span>
         <a href="#admissions" data-en="Admissions" data-ur="داخلے">Admissions</a>
         <a href="#campuses" data-en="Campuses" data-ur="کیمپسز">Campuses</a>
         <a href="#contact" data-en="Contact" data-ur="رابطہ">Contact</a>
@@ -413,6 +434,8 @@ footer svg.inline{color:var(--gold-soft)}
       <a href="#campuses" data-en="Campuses" data-ur="کیمپسز">Campuses</a>
       <a href="#admissions" data-en="Admissions" data-ur="داخلے">Admissions</a>
       <a href="#features" data-en="Features" data-ur="خصوصیات">Features</a>
+      <a class="sub" href="#teacher-portal" data-en="Teacher Portal" data-ur="ٹیچر پورٹل">Teacher Portal</a>
+      <a class="sub" href="#parent-portal" data-en="Parent Portal" data-ur="والدین پورٹل">Parent Portal</a>
       <a href="#contact" data-en="Contact" data-ur="رابطہ">Contact</a>
     </div>
   </div>
@@ -879,6 +902,40 @@ footer svg.inline{color:var(--gold-soft)}
     <div style="text-align:center;margin-top:30px"><a class="btn btn-gold" href="#admissions" data-en="Apply for Admission" data-ur="ابھی داخلہ لیں">Apply for Admission</a> <span class="ur" dir="rtl" lang="ur" style="color:var(--gold-deep)">ابھی داخلہ لیں</span></div>
   </div>
 </section>
+<section id="portals" style="padding-top:56px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kick">Online Portals</span>
+      <h2 data-en="Teacher &amp; Parent Portals" data-ur="ٹیچر اور والدین پورٹل">Teacher &amp; Parent Portals</h2>
+      <div class="ur" dir="rtl" lang="ur">ٹیچر اور والدین پورٹل</div>
+      <p data-en="One simple portal for our teachers and one for our parents, so attendance, homework and results are always close at hand." data-ur="ہمارے اساتذہ کے لیے ایک آسان پورٹل اور والدین کے لیے ایک، تاکہ حاضری، ہوم ورک اور نتائج ہمیشہ آپ کی پہنچ میں ہوں۔">One simple portal for our teachers and one for our parents, so attendance, homework and results are always close at hand.</p>
+    </div>
+    <div class="grid g2">
+      <article class="card3d reveal" id="teacher-portal"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v2.5M8.5 21l3.5-2.5L15.5 21M8 8.5h8M8 12h5"/></svg></span><h3 data-en="Teacher Portal" data-ur="ٹیچر پورٹل">Teacher Portal</h3><div class="ur" dir="rtl" lang="ur">ٹیچر پورٹل</div><p data-en="Everything a Dar-e-Ilm teacher needs for the school day, all in one place." data-ur="استاد کو اسکول کے دن کے لیے درکار ہر چیز، ایک ہی جگہ۔">Everything a Dar-e-Ilm teacher needs for the school day, all in one place.</p>
+        <ul class="plist">
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="1-tap attendance for the whole class" data-ur="پوری کلاس کی حاضری صرف ایک ٹیپ میں">1-tap attendance for the whole class</span></li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="Homework and assignments, set in seconds" data-ur="ہوم ورک اور اسائنمنٹس چند لمحوں میں">Homework and assignments, set in seconds</span></li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="Marks that go straight onto the report card" data-ur="نمبر براہ راست رپورٹ کارڈ پر">Marks that go straight onto the report card</span></li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="A daily class diary that parents can read" data-ur="روزانہ کی کلاس ڈائری جو والدین پڑھ سکیں">A daily class diary that parents can read</span></li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="Class timetable, with the day's lectures at a glance" data-ur="کلاس ٹائم ٹیبل اور دن کے لیکچرز ایک نظر میں">Class timetable, with the day's lectures at a glance</span></li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="Direct messages with parents" data-ur="والدین سے براہ راست پیغامات">Direct messages with parents</span></li>
+        </ul>
+        <div class="loginbox"><b data-en="Get your login from the school office" data-ur="اپنا لاگ ان اسکول آفس سے حاصل کریں">Get your login from the school office</b><p><span data-en="Call or WhatsApp " data-ur="کال یا واٹس ایپ کریں ">Call or WhatsApp </span><a href="tel:+923467969310">0346-7969310</a><span data-en=" and the office will create your teacher account." data-ur=" اور آفس آپ کا ٹیچر اکاؤنٹ بنا دے گا۔"> and the office will create your teacher account.</span></p></div>
+      </article>
+      <article class="card3d reveal" id="parent-portal"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.6-3.1 2.8-4.7 5.5-4.7s4.9 1.6 5.5 4.7"/><circle cx="17.2" cy="9" r="2.5"/><path d="M16.8 14.9c2.1.3 3.4 1.7 3.8 4.1"/></svg></span><h3 data-en="Parent Portal" data-ur="والدین پورٹل">Parent Portal</h3><div class="ur" dir="rtl" lang="ur">والدین پورٹل</div><p data-en="Young children have no login of their own. The parent portal is the child's portal, and every parent sees only their own child." data-ur="چھوٹے بچوں کا اپنا لاگ ان نہیں ہوتا۔ والدین کا پورٹل ہی بچے کا پورٹل ہے، اور ہر والد صرف اپنے بچے کی معلومات دیکھتا ہے۔">Young children have no login of their own. The parent portal is the child's portal, and every parent sees only their own child.</p>
+        <ul class="plist">
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="Only your own child's attendance, day by day and for the whole month" data-ur="صرف اپنے بچے کی حاضری، روزانہ اور پورے مہینے کی">Only your own child's attendance, day by day and for the whole month</span></li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="Homework and assignments, with due dates" data-ur="ہوم ورک اور اسائنمنٹس، جمع کرانے کی تاریخ کے ساتھ">Homework and assignments, with due dates</span></li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="Report card with marks, total, percentage and grade" data-ur="رپورٹ کارڈ: نمبر، میزان، فیصد اور گریڈ">Report card with marks, total, percentage and grade</span></li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="The teacher's daily diary notes" data-ur="استاد کی روزانہ ڈائری">The teacher's daily diary notes</span></li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="Class timings and school notices" data-ur="کلاس کے اوقات اور اسکول کے نوٹس">Class timings and school notices</span></li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg></span><span data-en="Message the class teacher directly, and get a reply" data-ur="کلاس ٹیچر کو براہ راست پیغام بھیجیں اور جواب پائیں">Message the class teacher directly, and get a reply</span></li>
+        </ul>
+        <div class="loginbox"><b data-en="Get your login from the school office" data-ur="اپنا لاگ ان اسکول آفس سے حاصل کریں">Get your login from the school office</b><p><span data-en="Call or WhatsApp " data-ur="کال یا واٹس ایپ کریں ">Call or WhatsApp </span><a href="tel:+923467969310">0346-7969310</a><span data-en=" and the office will create your account, linked to your child." data-ur=" اور آفس آپ کا اکاؤنٹ بنا کر آپ کے بچے سے منسلک کر دے گا۔"> and the office will create your account, linked to your child.</span></p></div>
+      </article>
+    </div>
+  </div>
+</section>
 </div><!-- /page-features -->
 
 <!-- ============ CAMPUSES PAGE ============ -->
@@ -1131,17 +1188,25 @@ footer svg.inline{color:var(--gold-soft)}
 
   /* Separate page views: one page open at a time, driven by the hash */
   var pageNames = ['home','about','academics','features','campuses','admissions','contact'];
+  var portalSections = ['teacher-portal','parent-portal'];
+  function currentHash(){ return (location.hash || '#home').replace('#',''); }
   function currentPage(){
-    var h = (location.hash || '#home').replace('#','');
+    var h = currentHash();
+    if(portalSections.indexOf(h) >= 0) return 'features';
     return pageNames.indexOf(h) >= 0 ? h : 'home';
   }
   function showPage(){
-    var name = currentPage();
+    var name = currentPage(), h = currentHash();
     document.querySelectorAll('.page').forEach(function(p){ p.classList.toggle('active', p.id === 'page-' + name); });
     document.querySelectorAll('nav.main a, .mobilemenu a').forEach(function(a){
-      a.classList.toggle('active', a.getAttribute('href') === '#' + name);
+      var href = a.getAttribute('href');
+      a.classList.toggle('active', href === '#' + name || href === '#' + h);
     });
     document.querySelectorAll('#page-' + name + ' .reveal').forEach(function(el){ el.classList.add('in'); });
+    if(portalSections.indexOf(h) >= 0){
+      var target = document.getElementById(h);
+      if(target){ target.scrollIntoView(); return; }
+    }
     window.scrollTo(0, 0);
   }
   window.addEventListener('hashchange', showPage);
